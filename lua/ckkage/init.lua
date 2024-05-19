@@ -1,3 +1,3 @@
 require('ckkage.remap')
-require('ckkage.packer')
 require('ckkage.set')
+require('ckkage.lazy_init')
