@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -29,7 +31,13 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
-vim.g.mapleader = " "
-
 --  # Set terminal to /bin/bash 
 vim.opt.shell='/bin/bash'
+
+vim.keymap.set("n", "<leader><leader>", function()
+    vim.cmd("so")
+end)
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
