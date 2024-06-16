@@ -3,11 +3,11 @@ return {
         "rose-pine/neovim",
         name = "rose-pine",
         priority = 1000,
-        config = function()
+        init = function()
             return {
                 require("rose-pine").setup({
                     variant = "auto",
-                    dark_variant = "main",
+                    dark_variant = "moon",
 
                     disable_background = true,
                     disable_nc_background = true,
@@ -28,7 +28,8 @@ return {
                         FloatBorder = { bg = "none" },
                         LineNr = { fg = "#f6c177" }, -- gold
 
-                        {         -- nvim-cmp
+                        {
+                        -- nvim-cmp
                         -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None"
                         CmpPmenu = { bg = "#011b26" },
                         CmpSel = { bg = "pine" },
@@ -41,7 +42,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "rose-pine",
+            colorscheme = "rose-pine-main",
         },
     },
 }

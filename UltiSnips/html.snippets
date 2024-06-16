@@ -1,0 +1,62 @@
+snippet reactmarkdown "React Markdown Template" b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${1:Notas da proposta}</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #root {
+      padding: 20px;
+    }
+    .markdown {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const { createRoot } = ReactDOM;
+
+    // Embedded Markdown content as a JavaScript string
+    const markdownContent = `
+      ${2:$VISUAL}
+    `;
+
+    function App() {
+      const [markdown, setMarkdown] = useState('');
+
+      useEffect(() => {
+        // Directly set the embedded markdown content
+        setMarkdown(markdownContent);
+      }, []);
+
+      return (
+        <div
+            className="markdown"
+            dangerouslySetInnerHTML={{ __html: marked.parse(markdown) }}
+         />
+      );
+    }
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
+endsnippet
+

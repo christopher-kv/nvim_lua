@@ -62,8 +62,8 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-Tab>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<a-w'] = cmp.mapping.select_prev_item(cmp_select),
+                ['<a-s'] = cmp.mapping.select_next_item(cmp_select),
                 ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
@@ -75,7 +75,7 @@ return {
             })
         })
         vim.diagnostic.config({
-            -- update_in_insert = true,
+            update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
